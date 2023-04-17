@@ -1,0 +1,39 @@
+{
+	"pathTypesetting" : "Composición tipográfica",
+	
+	"nameParagraph"     : "Párrafo",
+	"mnemonicParagraph" : "Párrafo",
+	"leafParagraph"     : "Párrafo",
+	
+	"nameBoldChunk"     : "Formato negrita",
+	"mnemonicBoldChunk" : "FormatoNegrita",
+	"leafBoldChunk"     : "Formato negrita",
+	
+	"nameItalicChunk"     : "Formato itálica",
+	"mnemonicItalicChunk" : "FormatoItálica",
+	"leafItalicChunk"     : "Formato itálica",
+	
+	"nameColorChunk"     : "Formato color",
+	"mnemonicColorChunk" : "FormatoColor",
+	"leafColorChunk"     : "Formato color",
+	
+	"nameMultiParagraph"     : "Multi-párrafo",
+	"mnemonicMultiParagraph" : "MultiPárrafo",
+	"leafMultiParagraph"     : "Multi-párrafo",
+	
+	"nameBulletedList" : "Viñetas",
+	"leafBulletedList" : "Viñetas",
+	
+	"nameCentering" : "Centrado",
+	"leafCentering" : "Centrado",
+	
+	"nameRule" : "Regla",
+	"leafRule" : "Regla",
+	
+	"pathReflection" : "Composición tipográfica.Reflexión",
+	
+	"nameCreateParagraph"     : "Crear párrafo",
+	"mnemonicCreateParagraph" : "CrearPárrafo",
+	"leafCreateParagraph"     : "Crear párrafo"
+}
+

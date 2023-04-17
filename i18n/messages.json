@@ -1,0 +1,39 @@
+{
+	"pathTypesetting" : "Typesetting",
+	
+	"nameParagraph"     : "Paragraph",
+	"mnemonicParagraph" : "Paragraph",
+	"leafParagraph"     : "Paragraph",
+	
+	"nameBoldChunk"     : "Bold chunk",
+	"mnemonicBoldChunk" : "BoldChunk",
+	"leafBoldChunk"     : "Bold chunk",
+	
+	"nameItalicChunk"     : "Italic chunk",
+	"mnemonicItalicChunk" : "ItalicChunk",
+	"leafItalicChunk"     : "Italic chunk",
+	
+	"nameColorChunk"     : "Color chunk",
+	"mnemonicColorChunk" : "ColorChunk",
+	"leafColorChunk"     : "Color chunk",
+	
+	"nameMultiParagraph"     : "Multi-paragraph",
+	"mnemonicMultiParagraph" : "MultiParagraph",
+	"leafMultiParagraph"     : "Multi-paragraph",
+	
+	"nameBulletedList" : "Bulleted list",
+	"leafBulletedList" : "Bulleted list",
+	
+	"nameCentering" : "Centering",
+	"leafCentering" : "Centering",
+	
+	"nameRule" : "Rule",
+	"leafRule" : "Rule",
+	
+	"pathReflection" : "Typesetting.Reflection",
+	
+	"nameCreateParagraph"     : "Create paragraph",
+	"mnemonicCreateParagraph" : "CreateParagraph",
+	"leafCreateParagraph"     : "Create paragraph"
+}
+
