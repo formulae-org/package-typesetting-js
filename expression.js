@@ -44,7 +44,7 @@ Typesetting.Chunk = class {
 
 		this.endLine = 0;
 		this.endToken = 0;
-		this.endTokenWidth;
+		this.endTokenWidth = null;
 
 		this.expression = null;
 		this.fontSize = 0;
