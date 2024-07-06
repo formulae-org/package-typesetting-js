@@ -760,27 +760,27 @@ Typesetting.ColorChunk = class extends Expression {
 		super.get(name);
 	}
 	
+	getSerializationNames() {
+		return [ "Red", "Green", "Blue", "Alpha" ];
+	}
+	
+	async getSerializationStrings() {
+		return [ this.redValue.toString(), this.greenValue.toString(), this.blueValue.toString(), this.alphaValue.toString() ];
+	}
+	
 	setSerializationStrings(strings, promises) {
 		for (let i = 0; i < 4; ++i) {
 			if (!/^(0|1|0\.\d+)$/.test(strings[i])) {
 				throw "Invalid number: " + strings[i];
 			}
 		}
-
+		
 		this.set("Red",   parseFloat(strings[0]));
 		this.set("Green", parseFloat(strings[1]));
 		this.set("Blue",  parseFloat(strings[2]));
 		this.set("Alpha", parseFloat(strings[3]));
 	}
 	
-	getSerializationNames() {
-		return [ "Red", "Green", "Blue", "Alpha" ];
-	}
-	
-	getSerializationStrings() {
-		return [ this.redValue.toString(), this.greenValue.toString(), this.blueValue.toString(), this.alphaValue.toString() ];
-	}
-
 	isChildAbsolutePositioning(i) {
 		return true;
 	}
