@@ -156,7 +156,7 @@ Typesetting.Paragraph = class {
 				this.appendTokens(expression.get("Value").split(/\s+/), expression);
 				break;
 
-			case "Internet.UniformResourceLocator": {
+			case "Internet.Hyperlink": {
 					let formatter = new Typesetting.FormattingToken(Typesetting.FormattingToken.SET_COLOR, "green");
 					this.lines[this.currentLine].tokens.push(formatter);
 
@@ -385,7 +385,7 @@ Typesetting.Paragraph = class {
 				switch (expression.getTag()) {
 					//case "String.String":
 					case "String.Text":
-					case "Internet.UniformResourceLocator":
+					case "Internet.Hyperlink":
 						y = Math.floor(line.horzBaseline - chunk.fontSize / 2);
 						height = Math.floor(chunk.fontSize);
 						break;
@@ -578,7 +578,7 @@ Typesetting.ParagraphExpression = class extends Expression {
 					switch (expression.getTag()) {
 						//case "String.String":
 						case "String.Text":
-						case "Internet.UniformResourceLocator":
+						case "Internet.Hyperlink":
 							return expression;
 
 						default:
