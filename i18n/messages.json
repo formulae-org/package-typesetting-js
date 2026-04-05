@@ -23,6 +23,9 @@
 	
 	"nameBulletedList" : "Bulleted list",
 	"leafBulletedList" : "Bulleted list",
+
+	"nameNumberedList" : "Numbered list",
+	"leafNumberedList" : "Numbered list",
 	
 	"nameCentering" : "Centering",
 	"leafCentering" : "Centering",

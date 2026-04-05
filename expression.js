@@ -480,6 +480,7 @@ Typesetting.ParagraphExpression = class extends Expression {
 		switch (this.parent.getTag()) {
 			case "Typesetting.MultiParagraph":
 			case "Typesetting.BulletedList":
+			case "Typesetting.NumberedList":
 				return true;
 		}
 		
@@ -813,6 +814,7 @@ Typesetting.MultiParagraph = class extends Expression {
 		
 		switch (this.parent.getTag()) {
 			case "Typesetting.BulletedList":
+			case "Typesetting.NumberedList":
 				return true;
 		}
 		
@@ -895,42 +897,42 @@ Typesetting.BulletedList = class extends Expression {
 	getTag() { return "Typesetting.BulletedList"; }
 	getName() { return Typesetting.messages["nameBulletedList"]; }
 	canHaveChildren(count) { return count > 0; }
-
+	
 	prepareDisplay(context) {
 		this.level = this.parent.level === undefined ? 1 : this.parent.level + 1;
-
+		
 		this.width = 0;
 		this.height = 0;
-
+		
 		let child;
 		for (let i = 0, n = this.children.length; i < n; ++i) {
 			(child = this.children[i]).prepareDisplay(context);
-
+			
 			if (i > 0) this.height += 10;
-
+			
 			if (child.width > this.width) this.width = child.width;
-
+			
 			child.x = 50;
 			child.y = this.height;
-
+			
 			this.height += child.height;
 		}
-
+		
 		this.width += 50;
 		this.vertBaseline = Math.round(this.width / 2);
 		this.horzBaseline = this.children[0].horzBaseline;
 	}
-
+	
 	display(context, x, y) {
 		let child;
 		for (let i = 0, n = this.children.length; i < n; ++i) {
 			(child = this.children[i]);
-
+			
 			context.fillText("•", x + child.x - 25, y + child.y + child.horzBaseline + Math.round(Formulae.fontSize / 2));
 			child.display(context, x + child.x, y + child.y);
 		}
 	}
-
+	
 	moveAcross(son, direction) {
 		if (direction == Expression.UP) {
 			if (son != 0) {
@@ -955,6 +957,81 @@ Typesetting.BulletedList = class extends Expression {
 		}
 	}
 }
+
+Typesetting.NumberedList = class extends Expression {
+	getTag()  { return "Typesetting.NumberedList"; }
+	getName() { return Typesetting.messages["nameNumberedList"]; }
+	canHaveChildren(count) { return count > 0; }
+	
+	prepareDisplay(context) {
+		this.level = this.parent.level === undefined ? 1 : this.parent.level + 1;
+		
+		this.width = 0;
+		this.height = 0;
+		
+		let child;
+		for (let i = 0, n = this.children.length; i < n; ++i) {
+			(child = this.children[i]).prepareDisplay(context);
+			
+			if (i > 0) this.height += 10;
+			
+			if (child.width > this.width) this.width = child.width;
+			
+			child.x = 50;
+			child.y = this.height;
+			
+			this.height += child.height;
+		}
+		
+		this.width += 50;
+		this.vertBaseline = Math.round(this.width / 2);
+		this.horzBaseline = this.children[0].horzBaseline;
+	}
+	
+	display(context, x, y) {
+		let bulletWidth = Math.ceil(context.measureText("•").width);
+		
+		let child;
+		let label, labelWidth;
+		for (let i = 0, n = this.children.length; i < n; ++i) {
+			(child = this.children[i]);
+			
+			label = String(i + 1) + ".";
+			labelWidth = Math.ceil(context.measureText(label).width);
+			
+			context.fillText(
+				label,
+				x + child.x - 25 - labelWidth + bulletWidth,
+				y + child.y + child.horzBaseline + Math.round(Formulae.fontSize / 2)
+			);
+			child.display(context, x + child.x, y + child.y);
+		}
+	}
+	
+	moveAcross(son, direction) {
+		if (direction == Expression.UP) {
+			if (son != 0) {
+				return this.children[son - 1].moveTo(direction);
+			}
+		}
+		else if (direction == Expression.DOWN) {
+			if (son != this.children.length - 1) {
+				return this.children[son + 1].moveTo(direction);
+			}
+		}
+		
+		return this.moveOut(direction);
+	}
+	
+	moveTo(direction) {
+		if (direction == Expression.UP) {
+			return this.children[this.children.length - 1].moveTo(direction);
+		}
+		else {
+			return this.children[0].moveTo(direction);
+		}
+	}
+};
 
 Typesetting.Centering = class extends Expression {
 	getTag() { return "Typesetting.Centering"; }
@@ -1014,6 +1091,7 @@ Typesetting.setExpressions = function(module) {
 	Formulae.setExpression(module, "Typesetting.ColorChunk",     Typesetting.ColorChunk);
 	Formulae.setExpression(module, "Typesetting.MultiParagraph", Typesetting.MultiParagraph);
 	Formulae.setExpression(module, "Typesetting.BulletedList",   Typesetting.BulletedList);
+	Formulae.setExpression(module, "Typesetting.NumberedList",   Typesetting.NumberedList);
 	Formulae.setExpression(module, "Typesetting.Centering",      Typesetting.Centering);
 	Formulae.setExpression(module, "Typesetting.Rule",           Typesetting.Rule);
 

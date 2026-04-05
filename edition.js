@@ -44,6 +44,7 @@ Typesetting.setEditions = function() {
 	Formulae.addEdition(this.messages["pathTypesetting"], null, this.messages["leafColorChunk"],      Typesetting.editionColorChunk);
 	Formulae.addEdition(this.messages["pathTypesetting"], null, this.messages["leafMultiParagraph"],  () => Expression.multipleEdition("Typesetting.MultiParagraph", 2, 0));
 	Formulae.addEdition(this.messages["pathTypesetting"], null, this.messages["leafBulletedList"],    () => Expression.wrapperEdition("Typesetting.BulletedList"));
+	Formulae.addEdition(this.messages["pathTypesetting"], null, this.messages["leafNumberedList"],    () => Expression.wrapperEdition("Typesetting.NumberedList"));
 	Formulae.addEdition(this.messages["pathTypesetting"], null, this.messages["leafCentering"],       () => Expression.wrapperEdition("Typesetting.Centering"));
 	Formulae.addEdition(this.messages["pathTypesetting"], null, this.messages["leafRule"],            () => Expression.replacingEdition("Typesetting.Rule"));
 

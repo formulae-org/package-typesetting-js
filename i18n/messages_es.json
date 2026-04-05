@@ -23,6 +23,9 @@
 	
 	"nameBulletedList" : "Viñetas",
 	"leafBulletedList" : "Viñetas",
+
+	"nameNumberedList" : "Lista numerada",
+	"leafNumberedList" : "Lista numerada",
 	
 	"nameCentering" : "Centrado",
 	"leafCentering" : "Centrado",
