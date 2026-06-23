@@ -16,7 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-'use strict';
+"use strict";
 
 export class Typesetting extends Formulae.Package {}
 
@@ -30,7 +30,7 @@ Typesetting.editionColorChunk = function() {
 		
 		Formulae.sExpression.replaceBy(newExpression);
 		newExpression.addChild(Formulae.sExpression);
-
+		
 		Formulae.sHandler.prepareDisplay();
 		Formulae.sHandler.display();
 		Formulae.setSelected(Formulae.sHandler, newExpression, false);
@@ -47,6 +47,7 @@ Typesetting.setEditions = function() {
 	Formulae.addEdition(this.messages["pathTypesetting"], null, this.messages["leafNumberedList"],    () => Expression.wrapperEdition("Typesetting.NumberedList"));
 	Formulae.addEdition(this.messages["pathTypesetting"], null, this.messages["leafCentering"],       () => Expression.wrapperEdition("Typesetting.Centering"));
 	Formulae.addEdition(this.messages["pathTypesetting"], null, this.messages["leafRule"],            () => Expression.replacingEdition("Typesetting.Rule"));
-
+	
 	Formulae.addEdition(this.messages["pathReflection"],  null, this.messages["leafCreateParagraph"], () => Expression.wrapperEdition("Typesetting.CreateParagraph"));
 };
+
