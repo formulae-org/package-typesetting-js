@@ -1036,7 +1036,7 @@ Typesetting.NumberedList = class extends Expression {
 Typesetting.Centering = class extends Expression {
 	getTag() { return "Typesetting.Centering"; }
 	getName() { return Typesetting.messages["nameCentering"]; }
-	canHaveChildren(count) { return count = 1; }
+	canHaveChildren(count) { return count === 1; }
 	
 	prepareDisplay(context) {
 		this.level = this.parent.level === undefined ? 0 : this.parent.level;
