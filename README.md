@@ -1,6 +1,6 @@
 # package-typesetting-js
 
-Document typesetting for [Fōrmulæ](https://formulae.org) — the visual environment for **computing**, **composing**, and **conversing** with tree-structured expressions.
+Document typesetting for [Fōrmulæ](https://formulae.org) — the visual environment for **composing**, **conversing**, and **computing** with tree-structured expressions.
 
 This repository contains the **typesetting package**: the composing elements — paragraphs, font styles, lists, rules — used to lay out formatted, human-readable documents (and to format prompts and responses in the Converse mode).
 
