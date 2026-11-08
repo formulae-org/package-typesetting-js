@@ -57,6 +57,6 @@ Typesetting.setEditions = function() {
 	Formulae.addEdition(this.messages["pathTypesetting"], this.messages["leafCentering"], this.messages["leafCentering"], () => Expression.wrapperEdition("Typesetting.Centering"));
 	Formulae.addEdition(this.messages["pathTypesetting"], this.messages["leafRule"],      this.messages["leafRule"],      () => Expression.replacingEdition("Typesetting.Rule"));
 
-	Formulae.addEdition(this.messages["pathReflection"],  Formulae.icon("Typesetting.CreateParagraph", 1), this.messages["leafCreateParagraph"], () => Expression.wrapperEdition("Typesetting.CreateParagraph"));
+	Formulae.addEdition(this.messages["pathProgrammatic"], Formulae.icon("Typesetting.CreateParagraph", 1), this.messages["leafCreateParagraph"], () => Expression.wrapperEdition("Typesetting.CreateParagraph"));
 };
 

@@ -33,7 +33,7 @@
 	"nameRule" : "Rule",
 	"leafRule" : "Rule",
 	
-	"pathReflection" : "Typesetting.Reflection",
+	"pathProgrammatic" : "Typesetting.Programmatic",
 	
 	"nameCreateParagraph"     : "Create paragraph",
 	"mnemonicCreateParagraph" : "CreateParagraph",
