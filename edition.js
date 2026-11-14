@@ -39,7 +39,8 @@ Typesetting.editionColorChunk = function() {
 
 Typesetting.setEditions = function() {
 
-	Formulae.addEdition(this.messages["pathTypesetting"], '<expression tag="Typesetting.Paragraph"><expression tag="Visualization.Selected"><expression tag="Null"/></expression></expression>', this.messages["leafParagraph"],       () => Expression.wrapperEdition("Typesetting.Paragraph"));
+	// Paragraph: renders only its child, so its icon would be indistinguishable from a bare slot — plain text instead
+	Formulae.addEdition(this.messages["pathTypesetting"], this.messages["leafParagraph"], this.messages["leafParagraph"], () => Expression.wrapperEdition("Typesetting.Paragraph"));
 
 	// Bold/Italic: wrapped in a real Paragraph so the engine actually renders the style (Paragraph.appendExpression intercepts these tags) — a filled "x" placeholder is required since an empty Null slot carries no visible text to style
 	Formulae.addEdition(this.messages["pathTypesetting"], '<expression tag="Typesetting.Paragraph"><expression tag="Typesetting.BoldChunk"><expression tag="Visualization.Selected"><expression tag="String.Text" Value="x"/></expression></expression></expression>',   this.messages["leafBoldChunk"],       () => Expression.wrapperEdition("Typesetting.BoldChunk"));
@@ -48,7 +49,7 @@ Typesetting.setEditions = function() {
 	// ColorChunk: prompted (color picker), like arithmetic's Number / color's Color
 	Formulae.addEdition(this.messages["pathTypesetting"], this.messages["leafColorChunk"], this.messages["leafColorChunk"], Typesetting.editionColorChunk);
 
-	Formulae.addEdition(this.messages["pathTypesetting"], Formulae.icon("Typesetting.MultiParagraph", 2), this.messages["leafMultiParagraph"],  () => Expression.multipleEdition("Typesetting.MultiParagraph", 2, 0));
+	Formulae.addEdition(this.messages["pathTypesetting"], Formulae.icon("Typesetting.MultiParagraph", 2), this.messages["leafMultiParagraph"],  () => Expression.multipleEdition("Typesetting.MultiParagraph", 2, 0), { caption: true }); // caption: icon looks like a vertical array
 
 	Formulae.addEdition(this.messages["pathTypesetting"], '<expression tag="Typesetting.BulletedList"><expression tag="Visualization.Selected"><expression tag="Null"/></expression></expression>', this.messages["leafBulletedList"],    () => Expression.wrapperEdition("Typesetting.BulletedList"));
 	Formulae.addEdition(this.messages["pathTypesetting"], '<expression tag="Typesetting.NumberedList"><expression tag="Visualization.Selected"><expression tag="Null"/></expression></expression>', this.messages["leafNumberedList"],    () => Expression.wrapperEdition("Typesetting.NumberedList"));
